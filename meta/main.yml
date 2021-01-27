@@ -1,0 +1,27 @@
+galaxy_info:
+  author: Tatsu Ryu
+  description: Instala docker e inicia o serviço
+  company: 
+
+  # If the issue tracker for your role is not on github, uncomment the
+  # next line and provide a value
+  # issue_tracker_url: http://example.com/issue/tracker
+
+  license: MIT
+
+  min_ansible_version: 2.1
+
+  # If this a Container Enabled role, provide the minimum Ansible Container version.
+  # min_ansible_container_version:
+
+  platforms:
+    - name: CentOS
+      versions:
+        - 7.3
+    - name: Ubuntu
+      versions:
+        - 18.04
+
+  galaxy_tags: []
+
+dependencies: []

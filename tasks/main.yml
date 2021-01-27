@@ -1,0 +1,26 @@
+---
+# tasks file for docker
+- name: Instala dependências
+  package:
+    name: "{{ vars[family_deps] }}"
+  vars:
+    family_deps: "{{ ansible_os_family | lower }}_dependencies"
+
+- name: Ajustes debian
+  include_tasks: debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: Ajustes RedHat
+  include_tasks: redhat.yml
+  when: ansible_os_family == 'RedHat'
+
+- name: Instala docker
+  package:
+    name: "{{ docker_packages }}"
+  notify: Ativa e inicia docker
+
+- name: Adiciona usuário suporte ao grupo docker
+  user:
+    name: suporte
+    groups: docker
+    append: yes
